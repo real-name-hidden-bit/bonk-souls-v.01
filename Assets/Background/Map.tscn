@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://map"]
+
+[ext_resource type="PackedScene" path="res://Assets/Background/Decoration_0.tscn" id="0_id"]
+[ext_resource type="PackedScene" path="res://Assets/Background/Edge+waterdeco_1.tscn" id="1_id"]
+[ext_resource type="PackedScene" path="res://Assets/Background/Lowest_Layer_2.tscn" id="2_id"]
+
+[node name="map" type="Node2D" unique_id=1026233850]
+scale = Vector2(2.0000005, 2.0000005)
+
+[node name="Lowest_Layer_2" parent="." unique_id=1492477997 instance=ExtResource("2_id")]
+
+[node name="Edge+waterdeco_1" parent="." unique_id=1570675129 instance=ExtResource("1_id")]
+
+[node name="Decoration_0" parent="." unique_id=1660659514 instance=ExtResource("0_id")]
