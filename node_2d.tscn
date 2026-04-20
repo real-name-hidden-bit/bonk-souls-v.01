@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://w0uvu6sl3lsd"]
 
+[ext_resource type="PackedScene" uid="uid://map" path="res://Scenes/Map/Map.tscn" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://b5k34alrmd30y" path="res://Assets/EyeEnemy/pixilart-sprite.png" id="2_epypp"]
+[ext_resource type="Texture2D" uid="uid://xlv6ehfr6wr3" path="res://Assets/EyeEnemy/pixil-frame-0.png" id="3_0hol4"]
+
 [node name="Node2D" type="Node2D" unique_id=1014430585]
+
+[node name="map" parent="." unique_id=1026233850 instance=ExtResource("1_wtcfe")]
+
+[node name="PixilartSprite" type="Sprite2D" parent="." unique_id=376130801]
+position = Vector2(3725, 2300)
+texture = ExtResource("2_epypp")
+
+[node name="PixilFrame0" type="Sprite2D" parent="." unique_id=1087165300]
+position = Vector2(3830, 2019)
+texture = ExtResource("3_0hol4")

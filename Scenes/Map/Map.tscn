@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://map"]
 
-[ext_resource type="PackedScene" path="res://Scenes/Decoration_0.tscn" id="0_id"]
-[ext_resource type="PackedScene" path="res://Scenes/Edge+waterdeco_1.tscn" id="1_id"]
-[ext_resource type="PackedScene" path="res://Scenes/Lowest_Layer_2.tscn" id="2_id"]
+[ext_resource type="PackedScene" path="res://Scenes/Map/Decoration_0.tscn" id="0_id"]
+[ext_resource type="PackedScene" path="res://Scenes/Map/Edge+waterdeco_1.tscn" id="1_id"]
+[ext_resource type="PackedScene" path="res://Scenes/Map/Lowest_Layer_2.tscn" id="2_id"]
 [ext_resource type="Texture2D" uid="uid://bkqk7wx5148wa" path="res://Assets/PlayerCharacter/pixil-frame-0 (3).png" id="4_4nxuk"]
 
 [node name="map" type="Node2D" unique_id=1026233850]
