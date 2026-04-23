@@ -3,6 +3,81 @@
 [ext_resource type="Script" uid="uid://cubfygs33525j" path="res://Scenes/Player/player.gd" id="1_ft8w5"]
 [ext_resource type="Texture2D" uid="uid://bkqk7wx5148wa" path="res://Assets/PlayerCharacter/pixil-frame-0 (3).png" id="2_h54ih"]
 [ext_resource type="Texture2D" uid="uid://d1wyerhig4855" path="res://Assets/PlayerCharacter/pixil-frame-0 (4).png" id="3_h54ih"]
+[ext_resource type="Texture2D" uid="uid://cfsxfcpu16fs2" path="res://Assets/WeaponSwing/pixel_art_sword_slash_sprites.png" id="4_ude3g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmcll"]
+atlas = ExtResource("4_ude3g")
+region = Rect2(0, 0, 64, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wape"]
+atlas = ExtResource("4_ude3g")
+region = Rect2(64, 0, 64, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t26db"]
+atlas = ExtResource("4_ude3g")
+region = Rect2(128, 0, 64, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fk5o5"]
+atlas = ExtResource("4_ude3g")
+region = Rect2(0, 47, 64, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_825xp"]
+atlas = ExtResource("4_ude3g")
+region = Rect2(64, 47, 64, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji083"]
+atlas = ExtResource("4_ude3g")
+region = Rect2(128, 47, 64, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kmp4"]
+atlas = ExtResource("4_ude3g")
+region = Rect2(0, 94, 64, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5acl"]
+atlas = ExtResource("4_ude3g")
+region = Rect2(64, 94, 64, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epg6k"]
+atlas = ExtResource("4_ude3g")
+region = Rect2(128, 94, 64, 47)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0u84n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmcll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wape")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t26db")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fk5o5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_825xp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji083")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kmp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5acl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epg6k")
+}],
+"loop": false,
+"name": &"swing",
+"speed": 30.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ude3g"]
+radius = 12.030786
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=235817179]
 script = ExtResource("1_ft8w5")
@@ -15,3 +90,20 @@ texture = ExtResource("2_h54ih")
 visible = false
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("3_h54ih")
+
+[node name="WeaponPivot" type="Node2D" parent="." unique_id=1888293972]
+
+[node name="WeaponArea" type="Area2D" parent="WeaponPivot" unique_id=1612868906]
+
+[node name="WeaponSprite" type="AnimatedSprite2D" parent="WeaponPivot/WeaponArea" unique_id=1444191213]
+position = Vector2(78, 6)
+scale = Vector2(1.5625, 1.2234043)
+sprite_frames = SubResource("SpriteFrames_0u84n")
+animation = &"swing"
+
+[node name="WeaponHitbox" type="CollisionShape2D" parent="WeaponPivot/WeaponArea" unique_id=946696885]
+position = Vector2(78.00001, 1.0000001)
+rotation = -1.5845463
+scale = Vector2(1.8194658, 2.9654686)
+shape = SubResource("CapsuleShape2D_ude3g")
+disabled = true

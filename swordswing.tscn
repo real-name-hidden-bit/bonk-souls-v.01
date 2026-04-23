@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://biyr8v2gorq8g"]
+
+[ext_resource type="Texture2D" uid="uid://cfsxfcpu16fs2" path="res://Assets/WeaponSwing/pixel_art_sword_slash_sprites.png" id="1_uirc2"]
+
+[node name="PixelArtSwordSlashSprites" type="Sprite2D" unique_id=1724803223]
+position = Vector2(271, 208)
+texture = ExtResource("1_uirc2")
