@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://dpa08hsj7phdm"]
 
+[ext_resource type="Script" uid="uid://cubfygs33525j" path="res://Scenes/Player/player.gd" id="1_ft8w5"]
+[ext_resource type="Texture2D" uid="uid://bkqk7wx5148wa" path="res://Assets/PlayerCharacter/pixil-frame-0 (3).png" id="2_h54ih"]
+[ext_resource type="Texture2D" uid="uid://d1wyerhig4855" path="res://Assets/PlayerCharacter/pixil-frame-0 (4).png" id="3_h54ih"]
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=235817179]
+script = ExtResource("1_ft8w5")
+
+[node name="left" type="Sprite2D" parent="." unique_id=256414668]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_h54ih")
+
+[node name="right" type="Sprite2D" parent="." unique_id=913337714]
+visible = false
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_h54ih")
