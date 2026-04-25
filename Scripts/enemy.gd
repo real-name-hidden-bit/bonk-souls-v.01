@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var character_body_2d: CharacterBody2D = $"../CharacterBody2D" # player
+@onready var nav: NavigationAgent2D = $NavigationAgent2D
 
 var hp: int = 50
+var speed = 150 # new
 
 func _ready() -> void:
 	# Start the walking animation immediately
@@ -10,8 +13,36 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Keeping this empty for now so we can focus purely on combat testing
-	pass
+	_move_towards_player()
+	
+# Movement Logic????
+func _move_towards_player() -> void:
+	set_movement_target(character_body_2d.position)
+	if nav.is_navigation_finished():
+		return
+		
+	var current_agent_position: Vector2 = global_position
+	var next_path_position: Vector2 = nav.get_next_path_position()
+	
+	var new_velocity = current_agent_position.direction_to(next_path_position) * speed
+	
+	if nav.avoidance_enabled:
+		nav.set_velocity(new_velocity)
+	else:
+		_velocity_computed(new_velocity)
+	
+	move_and_slide()
 
+func _velocity_computed(safe_velocity: Vector2):
+	velocity = safe_velocity
+
+func actor_setup():
+	await get_tree().physics_frame
+	set_movement_target(character_body_2d.position)
+
+func set_movement_target(movement_target: Vector2):
+	nav.target_position = movement_target
+	
 # --- COMBAT LOGIC ---
 
 # 1. This triggers when the player's weapon swings into the enemy's Hurtbox

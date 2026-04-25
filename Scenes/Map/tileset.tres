@@ -2,6 +2,24 @@
 
 [ext_resource type="Texture2D" uid="uid://bpndc0gkduq2d" path="res://Scenes/Map/tileset.png" id="1_xqa4n"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2dffe"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_rwt5y"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xjj3a"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cn3lXeZi_Qy"]
 texture = ExtResource("1_xqa4n")
 0:0/0 = 0
@@ -17,6 +35,7 @@ texture = ExtResource("1_xqa4n")
 7:1/0 = 0
 0:2/0 = 0
 1:2/0 = 0
+1:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_2dffe")
 2:2/0 = 0
 3:2/0 = 0
 4:2/0 = 0
@@ -40,10 +59,12 @@ texture = ExtResource("1_xqa4n")
 1:5/0 = 0
 2:5/0 = 0
 3:5/0 = 0
+3:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_rwt5y")
 4:5/0 = 0
 7:5/0 = 0
 0:6/0 = 0
 4:6/0 = 0
+4:6/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_xjj3a")
 5:6/0 = 0
 6:6/0 = 0
 7:6/0 = 0
@@ -81,4 +102,6 @@ texture = ExtResource("1_xqa4n")
 [resource]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
+navigation_layer_0/layers = 1
+navigation_layer_1/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_cn3lXeZi_Qy")
