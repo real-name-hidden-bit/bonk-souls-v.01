@@ -65,7 +65,7 @@ height = 190.0
 script = ExtResource("1_nvvbs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1027407054]
-position = Vector2(532.75, 335.5)
+position = Vector2(6.2499695, 14.5)
 scale = Vector2(0.43312493, 0.39375)
 sprite_frames = SubResource("SpriteFrames_hb8ge")
 animation = &"walk"
@@ -73,20 +73,20 @@ frame = 2
 frame_progress = 0.7879412
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1937490433]
-position = Vector2(527.99994, 319.99997)
+position = Vector2(1.4999083, -1.0000305)
 rotation = -1.5716138
 shape = SubResource("CapsuleShape2D_7k104")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1146931299]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hurtbox" unique_id=1984238053]
+position = Vector2(-526.5, -320.99997)
 polygon = PackedVector2Array(489, 237, 565, 237, 565, 247, 586, 247, 587, 257, 597, 257, 597, 266, 608, 266, 608, 286, 620, 286, 620, 355, 609, 355, 609, 375, 598, 375, 598, 384, 587, 384, 587, 395, 565, 394, 565, 404, 490, 404, 490, 394, 468, 394, 468, 384, 457, 384, 457, 375, 446, 375, 446, 355, 435, 355, 435, 286, 446, 286, 446, 266, 457, 266, 457, 257, 468, 257, 468, 247, 490, 247)
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=419438933]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1111746850]
-position = Vector2(528, 320)
+position = Vector2(1.5000305, -0.9999695)
 shape = SubResource("CapsuleShape2D_4gyqm")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=244488824]

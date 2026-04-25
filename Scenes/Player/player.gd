@@ -1,18 +1,16 @@
 extends CharacterBody2D
 
-# Existing Player Sprites
+# --- NODES ---
 @onready var left: Sprite2D = $left
 @onready var right: Sprite2D = $right
 
-# Weapon References
 @onready var weapon_pivot: Node2D = $WeaponPivot
 @onready var weapon_sprite: AnimatedSprite2D = $WeaponPivot/WeaponArea/WeaponSprite
 @onready var weapon_hitbox: CollisionShape2D = $WeaponPivot/WeaponArea/WeaponHitbox
 
+# --- STATS ---
 const SPEED = 300.0
 var lives: int = 4
-
-# State Variable
 var is_attacking: bool = false
 
 func _ready() -> void:
@@ -20,9 +18,9 @@ func _ready() -> void:
 	weapon_sprite.hide()
 	weapon_hitbox.disabled = true
 	
-	# Connect signals so the code knows when animations change or finish
+	# Connect signals for the active frames logic
 	weapon_sprite.animation_finished.connect(_on_attack_finished)
-	weapon_sprite.frame_changed.connect(_on_weapon_frame_changed) # NEW SIGNAL HERE
+	weapon_sprite.frame_changed.connect(_on_weapon_frame_changed)
 
 func _physics_process(delta: float) -> void:
 	# Only allow movement and aiming if the player is NOT currently attacking
@@ -62,39 +60,48 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+# --- WEAPON LOGIC ---
+
 func perform_attack() -> void:
 	is_attacking = true
-	
-	# Show the sprite and play the animation
 	weapon_sprite.show()
 	weapon_sprite.play("swing") 
-	
-	# Notice we NO LONGER enable the hitbox here!
-	# The frame_changed function will handle it now.
 
 func _on_attack_finished() -> void:
-	# Reset back to normal movement state
 	is_attacking = false
-	
 	weapon_sprite.hide()
 	weapon_sprite.stop()
 	weapon_hitbox.disabled = true
-
 
 func _on_weapon_frame_changed() -> void:
 	if not is_attacking:
 		return
 		
+	# Turns the damage hitbox ON during frames 3, 4, and 5
 	if weapon_sprite.frame >= 3 and weapon_sprite.frame <= 5:
 		weapon_hitbox.disabled = false
 	else:
-		weapon_hitbox.disabled = true 
-		
-func take_damage() -> void:
+		weapon_hitbox.disabled = true
+
+# --- TAKING DAMAGE LOGIC ---
+
+func take_damage(attacker_position: Vector2) -> void:
 	lives -= 1
 	print("Player hit! Lives remaining: ", lives)
 	
+	# --- SIMPLE X/Y INSTANT HOP (KNOCKBACK) ---
+	
+	# Check X (Left / Right)
+	if attacker_position.x < global_position.x:
+		position.x += 30 # Enemy is left, hop right
+	else:
+		position.x -= 30 # Enemy is right, hop left
+
+	# Check Y (Up / Down)
+	if attacker_position.y < global_position.y:
+		position.y += 30 # Enemy is above, hop down
+	else:
+		position.y -= 30 # Enemy is below, hop up
+		
 	if lives <= 0:
 		print("Game Over!")
-		# Later, you can reload the scene or show a Game Over screen here
-		# get_tree().reload_current_scene()
