@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://bfr6bv3x0xl7w"]
+
+[ext_resource type="Texture2D" uid="uid://b5k34alrmd30y" path="res://Assets/EyeEnemy/pixilart-sprite.png" id="1_7k104"]
+[ext_resource type="Script" uid="uid://bythpood6bww6" path="res://Scripts/enemy.gd" id="1_nvvbs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gyqm"]
+atlas = ExtResource("1_7k104")
+region = Rect2(0, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi2p4"]
+atlas = ExtResource("1_7k104")
+region = Rect2(800, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iifgy"]
+atlas = ExtResource("1_7k104")
+region = Rect2(1600, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epg4t"]
+atlas = ExtResource("1_7k104")
+region = Rect2(2400, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yqyl"]
+atlas = ExtResource("1_7k104")
+region = Rect2(3200, 0, 800, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wujgv"]
+atlas = ExtResource("1_7k104")
+region = Rect2(4000, 0, 800, 800)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hb8ge"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gyqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi2p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iifgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epg4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yqyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wujgv")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 13.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7k104"]
+radius = 89.99748
+height = 184.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gyqm"]
+radius = 94.0
+height = 188.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1834516169]
+script = ExtResource("1_nvvbs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1027407054]
+position = Vector2(532.75, 335.5)
+scale = Vector2(0.43312493, 0.39375)
+sprite_frames = SubResource("SpriteFrames_hb8ge")
+animation = &"walk"
+frame = 2
+frame_progress = 0.7879412
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1937490433]
+position = Vector2(527.99994, 319.99997)
+rotation = -1.5716138
+shape = SubResource("CapsuleShape2D_7k104")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1146931299]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hurtbox" unique_id=1984238053]
+polygon = PackedVector2Array(489, 237, 565, 237, 565, 247, 586, 247, 587, 257, 597, 257, 597, 266, 608, 266, 608, 286, 620, 286, 620, 355, 609, 355, 609, 375, 598, 375, 598, 384, 587, 384, 587, 395, 565, 394, 565, 404, 490, 404, 490, 394, 468, 394, 468, 384, 457, 384, 457, 375, 446, 375, 446, 355, 435, 355, 435, 286, 446, 286, 446, 266, 457, 266, 457, 257, 468, 257, 468, 247, 490, 247)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=419438933]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1111746850]
+position = Vector2(526, 318)
+shape = SubResource("CapsuleShape2D_4gyqm")

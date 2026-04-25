@@ -79,16 +79,18 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ude3g"]
 radius = 12.030786
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=235817179]
+[node name="Player" type="CharacterBody2D" unique_id=235817179]
 script = ExtResource("1_ft8w5")
 
 [node name="left" type="Sprite2D" parent="." unique_id=256414668]
-scale = Vector2(0.05, 0.05)
+position = Vector2(3.9999962, -4.4999924)
+scale = Vector2(0.023529412, 0.021764701)
 texture = ExtResource("2_h54ih")
 
 [node name="right" type="Sprite2D" parent="." unique_id=913337714]
 visible = false
-scale = Vector2(0.05, 0.05)
+position = Vector2(3.9999962, -4.4999924)
+scale = Vector2(0.023529412, 0.021764701)
 texture = ExtResource("3_h54ih")
 
 [node name="WeaponPivot" type="Node2D" parent="." unique_id=1888293972]
@@ -96,13 +98,13 @@ texture = ExtResource("3_h54ih")
 [node name="WeaponArea" type="Area2D" parent="WeaponPivot" unique_id=1612868906]
 
 [node name="WeaponSprite" type="AnimatedSprite2D" parent="WeaponPivot/WeaponArea" unique_id=1444191213]
-position = Vector2(78, 6)
+position = Vector2(66, -3.25)
 scale = Vector2(1.5625, 1.2234043)
 sprite_frames = SubResource("SpriteFrames_0u84n")
 animation = &"swing"
 
 [node name="WeaponHitbox" type="CollisionShape2D" parent="WeaponPivot/WeaponArea" unique_id=946696885]
-position = Vector2(78.00001, 1.0000001)
+position = Vector2(66.00001, -8.25)
 rotation = -1.5845463
 scale = Vector2(1.8194658, 2.9654686)
 shape = SubResource("CapsuleShape2D_ude3g")
