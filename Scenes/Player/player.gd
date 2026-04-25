@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var weapon_hitbox: CollisionShape2D = $WeaponPivot/WeaponArea/WeaponHitbox
 
 const SPEED = 300.0
+var lives: int = 4
 
 # State Variable
 var is_attacking: bool = false
@@ -88,3 +89,12 @@ func _on_weapon_frame_changed() -> void:
 		weapon_hitbox.disabled = false
 	else:
 		weapon_hitbox.disabled = true 
+		
+func take_damage() -> void:
+	lives -= 1
+	print("Player hit! Lives remaining: ", lives)
+	
+	if lives <= 0:
+		print("Game Over!")
+		# Later, you can reload the scene or show a Game Over screen here
+		# get_tree().reload_current_scene()

@@ -58,8 +58,8 @@ radius = 89.99748
 height = 184.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gyqm"]
-radius = 94.0
-height = 188.0
+radius = 95.0
+height = 190.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1834516169]
 script = ExtResource("1_nvvbs")
@@ -78,6 +78,7 @@ rotation = -1.5716138
 shape = SubResource("CapsuleShape2D_7k104")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1146931299]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hurtbox" unique_id=1984238053]
 polygon = PackedVector2Array(489, 237, 565, 237, 565, 247, 586, 247, 587, 257, 597, 257, 597, 266, 608, 266, 608, 286, 620, 286, 620, 355, 609, 355, 609, 375, 598, 375, 598, 384, 587, 384, 587, 395, 565, 394, 565, 404, 490, 404, 490, 394, 468, 394, 468, 384, 457, 384, 457, 375, 446, 375, 446, 355, 435, 355, 435, 286, 446, 286, 446, 266, 457, 266, 457, 257, 468, 257, 468, 247, 490, 247)
@@ -85,5 +86,8 @@ polygon = PackedVector2Array(489, 237, 565, 237, 565, 247, 586, 247, 587, 257, 5
 [node name="Hitbox" type="Area2D" parent="." unique_id=419438933]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1111746850]
-position = Vector2(526, 318)
+position = Vector2(528, 320)
 shape = SubResource("CapsuleShape2D_4gyqm")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
