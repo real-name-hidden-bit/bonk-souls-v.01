@@ -89,5 +89,7 @@ polygon = PackedVector2Array(489, 237, 565, 237, 565, 247, 586, 247, 587, 257, 5
 position = Vector2(528, 320)
 shape = SubResource("CapsuleShape2D_4gyqm")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=244488824]
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
