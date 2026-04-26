@@ -61,8 +61,8 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 func take_damage(attacker_position: Vector2) -> void:
 	hp -= 1 
 	print("Enemy HP: ", hp)
-	
-	# --- SIMPLE X/Y INSTANT HOP (KNOCKBACK) ---
+	$BonkSound.play()
+	animated_sprite.modulate = Color.RED
 	
 	# Check X (Left / Right)
 	if attacker_position.x < global_position.x:
@@ -79,6 +79,10 @@ func take_damage(attacker_position: Vector2) -> void:
 	if hp <= 0:
 		print("Enemy Defeated!")
 		queue_free() 
+	else:
+		await get_tree().create_timer(0.15).timeout
+		
+		animated_sprite.modulate = Color.WHITE
 
 func deal_damage_to_player(player_node: Node2D) -> void:
 	# Tells the player script to run its damage function and passes the enemy's position
