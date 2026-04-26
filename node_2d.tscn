@@ -7,10 +7,42 @@
 [ext_resource type="Texture2D" uid="uid://bt004aq5bh01x" path="res://Assets/Lifebar/Fillbar3.png" id="5_kdubu"]
 [ext_resource type="Texture2D" uid="uid://cnxovl14hrwmc" path="res://Assets/Lifebar/Heart.png" id="6_kdubu"]
 [ext_resource type="PackedScene" uid="uid://cb8x16y14s3n3" path="res://Scenes/GameOver/GameOver.tscn" id="7_d21ai"]
+[ext_resource type="PackedScene" uid="uid://6bw3goxuxnhd" path="res://Scenes/Win/win.tscn" id="8_rj586"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4d7sh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rj586"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ir8iy"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hqns4"]
 
 [node name="Node2D" type="Node2D" unique_id=1014430585]
 
 [node name="map" parent="." unique_id=1026233850 instance=ExtResource("1_wtcfe")]
+
+[node name="Area2D" type="StaticBody2D" parent="." unique_id=823638906]
+position = Vector2(565, 557)
+rotation = -3.1318214
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D" unique_id=727830712]
+position = Vector2(-3291.3367, -2883.978)
+rotation = -4.7257247
+shape = SubResource("WorldBoundaryShape2D_4d7sh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=768903299]
+rotation = -0.011578279
+shape = SubResource("WorldBoundaryShape2D_rj586")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=750584022]
+position = Vector2(40.6756, -33.39904)
+rotation = -1.580605
+shape = SubResource("WorldBoundaryShape2D_ir8iy")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D" unique_id=1316026205]
+position = Vector2(-3209.3604, -2886.779)
+rotation = 3.1341512
+shape = SubResource("WorldBoundaryShape2D_hqns4")
 
 [node name="Enemy" parent="." unique_id=1834516169 instance=ExtResource("3_epypp")]
 position = Vector2(1231, 1605)
@@ -39,6 +71,9 @@ scale = Vector2(0.32610753, 0.3483231)
 texture = ExtResource("6_kdubu")
 
 [node name="GameOverScreen" parent="UI" unique_id=1994143325 instance=ExtResource("7_d21ai")]
+visible = false
+
+[node name="Win" parent="UI" unique_id=1135826533 instance=ExtResource("8_rj586")]
 visible = false
 
 [node name="hi" type="Node" parent="." unique_id=1126023400]

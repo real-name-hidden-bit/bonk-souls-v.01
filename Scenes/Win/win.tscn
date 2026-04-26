@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://6bw3goxuxnhd"]
+
+[ext_resource type="Script" uid="uid://dhd3blf30yifj" path="res://Scripts/win.gd" id="1_aato0"]
+[ext_resource type="Texture2D" uid="uid://dlm06s30x36nu" path="res://Assets/Titles/YouWin.png" id="2_rqevv"]
+[ext_resource type="Texture2D" uid="uid://csm2upqynk8c4" path="res://Assets/Titles/Retry.png" id="3_itm7f"]
+
+[node name="Win" type="Control" unique_id=1135826533]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_aato0")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=929718946]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1111.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.98, 0.98, 0.98, 0.70980394)
+
+[node name="YouWinTitle" type="TextureRect" parent="." unique_id=587425414]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 104.0
+offset_right = 1856.0
+offset_bottom = 704.0
+scale = Vector2(0.39991635, 0.52679515)
+texture = ExtResource("2_rqevv")
+
+[node name="RetryButton" type="TextureButton" parent="." unique_id=644865029]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 0
+offset_left = 448.0
+offset_top = 456.0
+offset_right = 2048.0
+offset_bottom = 656.0
+scale = Vector2(0.1595851, 0.18982503)
+texture_normal = ExtResource("3_itm7f")
+ignore_texture_size = true
+stretch_mode = 3
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]

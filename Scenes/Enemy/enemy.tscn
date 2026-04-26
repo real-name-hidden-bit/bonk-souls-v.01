@@ -82,10 +82,6 @@ animations = [{
 "speed": 13.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7k104"]
-radius = 89.99748
-height = 184.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_2t2r4"]
 radius = 11.538461
 
@@ -102,11 +98,6 @@ scale = Vector2(0.43312493, 0.39375)
 sprite_frames = SubResource("SpriteFrames_hb8ge")
 animation = &"walk"
 frame_progress = 0.8741415
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1937490433]
-position = Vector2(1.4999083, -1.0000305)
-rotation = -1.5716138
-shape = SubResource("CapsuleShape2D_7k104")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1146931299]
 

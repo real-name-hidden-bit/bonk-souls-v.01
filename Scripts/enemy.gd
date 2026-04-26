@@ -81,7 +81,7 @@ func take_damage(attacker_position: Vector2) -> void:
 		position.y -= 40 # Attacker is below, hop up
 		
 	if hp <= 0:
-		print("Enemy Defeated!")
+		handle_death()
 		queue_free() 
 	else:
 		await get_tree().create_timer(0.15).timeout
@@ -92,3 +92,12 @@ func deal_damage_to_player(player_node: Node2D) -> void:
 	# Tells the player script to run its damage function and passes the enemy's position
 	if player_node.has_method("take_damage"):
 		player_node.take_damage(global_position)
+		
+func handle_death() -> void:
+	print("Enemy Died!")
+	
+	process_mode = PROCESS_MODE_DISABLED 
+	
+	var game_over_node = get_node("/root/Node2D/UI/Win")
+	if game_over_node:
+		game_over_node.show()
