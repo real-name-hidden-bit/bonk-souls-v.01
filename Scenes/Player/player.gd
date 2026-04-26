@@ -95,7 +95,7 @@ func _on_weapon_frame_changed() -> void:
 	if not is_attacking:
 		return
 		
-	if weapon_sprite.frame >= 3 and weapon_sprite.frame <= 5:
+	if weapon_sprite.frame >= 4 and weapon_sprite.frame <= 5:
 		weapon_hitbox.disabled = false
 	else:
 		weapon_hitbox.disabled = true

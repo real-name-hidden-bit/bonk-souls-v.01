@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://qotryoeab3vo" path="res://Assets/Lifebar/Container3.png" id="4_q6r6c"]
 [ext_resource type="Texture2D" uid="uid://bt004aq5bh01x" path="res://Assets/Lifebar/Fillbar3.png" id="5_kdubu"]
 [ext_resource type="Texture2D" uid="uid://cnxovl14hrwmc" path="res://Assets/Lifebar/Heart.png" id="6_kdubu"]
-[ext_resource type="PackedScene" uid="uid://bkf66tmcf5rx5" path="res://GameOver.tscn" id="7_d21ai"]
+[ext_resource type="PackedScene" uid="uid://cb8x16y14s3n3" path="res://Scenes/GameOver/GameOver.tscn" id="7_d21ai"]
 
 [node name="Node2D" type="Node2D" unique_id=1014430585]
 
