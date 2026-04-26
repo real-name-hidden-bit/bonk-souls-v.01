@@ -12,32 +12,38 @@ extends CharacterBody2D
 const SPEED = 300.0
 var lives: int = 4
 var is_attacking: bool = false
+var is_dashing: bool = false 
 
 func _ready() -> void:
-	# Hide weapon and disable hitbox on startup
 	weapon_sprite.hide()
 	weapon_hitbox.disabled = true
 	
-	# Connect signals for the active frames logic
 	weapon_sprite.animation_finished.connect(_on_attack_finished)
 	weapon_sprite.frame_changed.connect(_on_weapon_frame_changed)
 
 func _physics_process(delta: float) -> void:
-	# Only allow movement and aiming if the player is NOT currently attacking
 	if not is_attacking:
+		if Input.is_action_just_pressed("ui_accept") and not is_dashing:
+			perform_dash()
+
+		var active_speed = SPEED
+		if is_dashing:
+			active_speed = SPEED * 3.0 
+
+		# --- MOVEMENT ---
 		var altitude := Input.get_axis("ui_up", "ui_down")
 		if altitude:
-			velocity.y = altitude * SPEED
+			velocity.y = altitude * active_speed
 		else:
-			velocity.y = move_toward(velocity.y, 0, SPEED)
+			velocity.y = move_toward(velocity.y, 0, active_speed)
 
 		var direction := Input.get_axis("ui_left", "ui_right")
 		if direction:
-			velocity.x = direction * SPEED
+			velocity.x = direction * active_speed
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, active_speed)
 
-		# --- FACING DIRECTION (Player Sprites) ---
+		# --- FACING DIRECTION ---
 		if Input.is_action_pressed("ui_left"):
 			left.visible = true
 			right.visible = false
@@ -55,10 +61,20 @@ func _physics_process(delta: float) -> void:
 			perform_attack()
 			
 	else:
-		# If the player is attacking, stop their momentum quickly
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
 
 	move_and_slide()
+
+# --- DASH LOGIC ---
+
+func perform_dash() -> void:
+	is_dashing = true
+	
+	# The code pauses here for exactly 0.2 seconds while the player zooms away
+	await get_tree().create_timer(0.2).timeout
+	
+	# After 0.2 seconds, turn the dash off so speed goes back to normal
+	is_dashing = false
 
 # --- WEAPON LOGIC ---
 
@@ -77,7 +93,6 @@ func _on_weapon_frame_changed() -> void:
 	if not is_attacking:
 		return
 		
-	# Turns the damage hitbox ON during frames 3, 4, and 5
 	if weapon_sprite.frame >= 3 and weapon_sprite.frame <= 5:
 		weapon_hitbox.disabled = false
 	else:
@@ -88,21 +103,22 @@ func _on_weapon_frame_changed() -> void:
 func take_damage(attacker_position: Vector2) -> void:
 	lives -= 1
 	print("Player hit! Lives remaining: ", lives)
+	
+	# Update the UI Life Bar
 	var life_bar = get_tree().get_first_node_in_group("lifebar")
 	if life_bar:
-		life_bar.value = lives
+		life_bar.value = lives + 1 
 	
-	# Check X (Left / Right)
+	# Simple X/Y Instant Hop Knockback
 	if attacker_position.x < global_position.x:
-		position.x += 30 # Enemy is left, hop right
+		position.x += 30 
 	else:
-		position.x -= 30 # Enemy is right, hop left
+		position.x -= 30 
 
-	# Check Y (Up / Down)
 	if attacker_position.y < global_position.y:
-		position.y += 30 # Enemy is above, hop down
+		position.y += 30 
 	else:
-		position.y -= 30 # Enemy is below, hop up
+		position.y -= 30 
 		
 	if lives <= 0:
 		print("Game Over!")

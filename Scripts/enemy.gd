@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var character_body_2d: CharacterBody2D = $"../Player" # player
+@onready var character_body_2d: CharacterBody2D = $"../Player"
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 
-var hp: int = 50
-var speed = 150 # new
+var hp: int = 20
+var speed = 150 
 
 func _ready() -> void:
 	# Start the walking animation immediately
@@ -49,7 +49,6 @@ func set_movement_target(movement_target: Vector2):
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	# Make sure the thing hitting us has the "weapon" nametag
 	if area.is_in_group("weapon"):
-		# Using area.global_position prevents the 'owner' crash!
 		take_damage(area.global_position)
 
 # 2. This triggers when the enemy's Hitbox touches the player's body
@@ -61,6 +60,11 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 func take_damage(attacker_position: Vector2) -> void:
 	hp -= 1 
 	print("Enemy HP: ", hp)
+	
+	if hp <= 10:
+		speed = 350
+		animated_sprite.speed_scale = 2.0
+		
 	$BonkSound.play()
 	animated_sprite.modulate = Color.RED
 	

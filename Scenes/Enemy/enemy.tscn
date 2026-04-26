@@ -86,6 +86,9 @@ animations = [{
 radius = 89.99748
 height = 184.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2t2r4"]
+radius = 11.538461
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gyqm"]
 radius = 95.0
 height = 190.0
@@ -107,9 +110,9 @@ shape = SubResource("CapsuleShape2D_7k104")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1146931299]
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hurtbox" unique_id=1984238053]
-position = Vector2(-526.5, -320.99997)
-polygon = PackedVector2Array(489, 237, 565, 237, 565, 247, 586, 247, 587, 257, 597, 257, 597, 266, 608, 266, 608, 286, 620, 286, 620, 355, 609, 355, 609, 375, 598, 375, 598, 384, 587, 384, 587, 395, 565, 394, 565, 404, 490, 404, 490, 394, 468, 394, 468, 384, 457, 384, 457, 375, 446, 375, 446, 355, 435, 355, 435, 286, 446, 286, 446, 266, 457, 266, 457, 257, 468, 257, 468, 247, 490, 247)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox" unique_id=1166965076]
+scale = Vector2(7.8, 7.520001)
+shape = SubResource("CircleShape2D_2t2r4")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=419438933]
 
