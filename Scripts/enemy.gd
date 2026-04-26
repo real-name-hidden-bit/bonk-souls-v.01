@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var player: CharacterBody2D = $"../Player"
+@onready var character_body_2d: CharacterBody2D = $"../Player"
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 
 var hp: int = 20
@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 	
 # Movement Logic????
 func _move_towards_player() -> void:
-	set_movement_target(player.position)
+	set_movement_target(character_body_2d.position)
 	if nav.is_navigation_finished():
 		return
 		
@@ -38,7 +38,7 @@ func _velocity_computed(safe_velocity: Vector2):
 
 func actor_setup():
 	await get_tree().physics_frame
-	set_movement_target(player.position)
+	set_movement_target(character_body_2d.position)
 
 func set_movement_target(movement_target: Vector2):
 	nav.target_position = movement_target
