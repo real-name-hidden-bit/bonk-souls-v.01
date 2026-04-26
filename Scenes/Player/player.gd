@@ -107,7 +107,7 @@ func take_damage(attacker_position: Vector2) -> void:
 	# Update the UI Life Bar
 	var life_bar = get_tree().get_first_node_in_group("lifebar")
 	if life_bar:
-		life_bar.value = lives + 1 
+		life_bar.value = lives
 	
 	# Simple X/Y Instant Hop Knockback
 	if attacker_position.x < global_position.x:
@@ -120,5 +120,15 @@ func take_damage(attacker_position: Vector2) -> void:
 	else:
 		position.y -= 30 
 		
-	if lives <= 0:
-		print("Game Over!")
+	if lives == 0:
+		handle_death()
+
+func handle_death() -> void:
+	print("Player Died!")
+	
+	# 1. Stop all player script physics and input
+	process_mode = PROCESS_MODE_DISABLED 
+	
+	var game_over_node = get_node("/root/Node2D/UI/GameOverScreen")
+	if game_over_node:
+		game_over_node.show() # Shows the semi-transparent overlay
