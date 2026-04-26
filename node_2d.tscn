@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://qotryoeab3vo" path="res://Assets/Lifebar/Container3.png" id="4_q6r6c"]
 [ext_resource type="Texture2D" uid="uid://bt004aq5bh01x" path="res://Assets/Lifebar/Fillbar3.png" id="5_kdubu"]
 [ext_resource type="Texture2D" uid="uid://cnxovl14hrwmc" path="res://Assets/Lifebar/Heart.png" id="6_kdubu"]
-[ext_resource type="PackedScene" path="res://GameOver.tscn" id="7_d21ai"]
+[ext_resource type="PackedScene" uid="uid://bkf66tmcf5rx5" path="res://GameOver.tscn" id="7_d21ai"]
 
 [node name="Node2D" type="Node2D" unique_id=1014430585]
 
@@ -40,3 +40,5 @@ texture = ExtResource("6_kdubu")
 
 [node name="GameOverScreen" parent="UI" unique_id=1994143325 instance=ExtResource("7_d21ai")]
 visible = false
+
+[node name="hi" type="Node" parent="." unique_id=1126023400]
