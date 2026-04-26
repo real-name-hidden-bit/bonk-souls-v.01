@@ -70,15 +70,15 @@ func take_damage(attacker_position: Vector2) -> void:
 	
 	# Check X (Left / Right)
 	if attacker_position.x < global_position.x:
-		position.x += 20 # Attacker is left, hop right
+		position.x += 40 # Attacker is left, hop right
 	else:
-		position.x -= 20 # Attacker is right, hop left
+		position.x -= 40 # Attacker is right, hop left
 
 	# Check Y (Up / Down)
 	if attacker_position.y < global_position.y:
-		position.y += 20 # Attacker is above, hop down
+		position.y += 40 # Attacker is above, hop down
 	else:
-		position.y -= 20 # Attacker is below, hop up
+		position.y -= 40 # Attacker is below, hop up
 		
 	if hp <= 0:
 		print("Enemy Defeated!")

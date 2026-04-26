@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cb8x16y14s3n3"]
 
 [ext_resource type="Texture2D" uid="uid://pnfp2g4qv6x2" path="res://Assets/Titles/YouDiedTitle.png" id="1_a1htc"]
-[ext_resource type="Script" uid="uid://d1djkyatnx0hx" path="res://GameOver.gd" id="1_eksk4"]
+[ext_resource type="Script" uid="uid://d1djkyatnx0hx" path="res://Scripts/GameOver.gd" id="1_eksk4"]
 [ext_resource type="Texture2D" uid="uid://csm2upqynk8c4" path="res://Assets/Titles/Retry.png" id="2_eksk4"]
 
 [node name="GameOverScreen" type="Control" unique_id=1994143325]
