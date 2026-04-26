@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b5k34alrmd30y" path="res://Assets/EyeEnemy/pixilart-sprite.png" id="1_7k104"]
 [ext_resource type="Script" uid="uid://bythpood6bww6" path="res://Scripts/enemy.gd" id="1_nvvbs"]
-[ext_resource type="AudioStream" uid="uid://c8er1m852argc" path="res://Assets/Soundeffects/Bonk.mp3" id="3_2t2r4"]
+[ext_resource type="AudioStream" uid="uid://yqo07lxne23r" path="res://Assets/Soundeffects/BonkSound.mp3" id="3_2t2r4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4gyqm"]
 atlas = ExtResource("1_7k104")

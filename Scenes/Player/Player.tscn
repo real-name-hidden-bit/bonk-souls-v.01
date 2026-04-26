@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://dpa08hsj7phdm"]
 
 [ext_resource type="Script" uid="uid://cubfygs33525j" path="res://Scenes/Player/player.gd" id="1_ft8w5"]
+[ext_resource type="AudioStream" uid="uid://dqetv1ci6ydhk" path="res://Assets/Soundeffects/DashSFX.mp3" id="2_fk5o5"]
 [ext_resource type="Texture2D" uid="uid://bkqk7wx5148wa" path="res://Assets/PlayerCharacter/pixil-frame-0 (3).png" id="2_h54ih"]
+[ext_resource type="AudioStream" uid="uid://bm01d04hgy3sn" path="res://Assets/Soundeffects/HurtGameover.mp3" id="2_jmcll"]
+[ext_resource type="AudioStream" uid="uid://bfn65ov4p2p21" path="res://Assets/Soundeffects/HurtSound.mp3" id="3_4wape"]
 [ext_resource type="Texture2D" uid="uid://d1wyerhig4855" path="res://Assets/PlayerCharacter/pixil-frame-0 (4).png" id="3_h54ih"]
+[ext_resource type="AudioStream" uid="uid://dkom6syxgygmh" path="res://Assets/Soundeffects/WeaponSwing.mp3" id="4_t26db"]
 [ext_resource type="Texture2D" uid="uid://cfsxfcpu16fs2" path="res://Assets/WeaponSwing/pixel_art_sword_slash_sprites.png" id="4_ude3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ude3g"]
@@ -84,6 +88,19 @@ radius = 12.030786
 
 [node name="Player" type="CharacterBody2D" unique_id=235817179 groups=["player"]]
 script = ExtResource("1_ft8w5")
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="." unique_id=912588792]
+stream = ExtResource("2_fk5o5")
+
+[node name="HurtGameOverSound" type="AudioStreamPlayer2D" parent="." unique_id=2094380683]
+process_mode = 3
+stream = ExtResource("2_jmcll")
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="." unique_id=1013900167]
+stream = ExtResource("3_4wape")
+
+[node name="SwingSound" type="AudioStreamPlayer2D" parent="." unique_id=1563073436]
+stream = ExtResource("4_t26db")
 
 [node name="left" type="Sprite2D" parent="." unique_id=256414668]
 visible = false

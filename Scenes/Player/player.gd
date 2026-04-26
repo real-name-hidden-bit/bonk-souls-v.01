@@ -24,6 +24,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_attacking:
 		if Input.is_action_just_pressed("ui_accept") and not is_dashing:
+			$DashSound.play()
 			perform_dash()
 
 		var active_speed = SPEED
@@ -58,6 +59,7 @@ func _physics_process(delta: float) -> void:
 			
 		# --- TRIGGER ATTACK ---
 		if Input.is_action_just_pressed("attack"): 
+			$SwingSound.play()
 			perform_attack()
 			
 	else:
@@ -104,23 +106,25 @@ func take_damage(attacker_position: Vector2) -> void:
 	lives -= 1
 	print("Player hit! Lives remaining: ", lives)
 	
-	# Update the UI Life Bar
+	$HurtSound.play()
+	
 	var life_bar = get_tree().get_first_node_in_group("lifebar")
 	if life_bar:
 		life_bar.value = lives
 	
 	# Simple X/Y Instant Hop Knockback
 	if attacker_position.x < global_position.x:
-		position.x += 30 
+		position.x += 40 
 	else:
-		position.x -= 30 
+		position.x -= 40 
 
 	if attacker_position.y < global_position.y:
-		position.y += 30 
+		position.y += 40 
 	else:
-		position.y -= 30 
+		position.y -= 40 
 		
 	if lives == 0:
+		$HurtGameOverSound.play()
 		handle_death()
 
 func handle_death() -> void:

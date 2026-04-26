@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cb8x16y14s3n3"]
+
+[ext_resource type="Texture2D" uid="uid://pnfp2g4qv6x2" path="res://Assets/Titles/YouDiedTitle.png" id="1_a1htc"]
+[ext_resource type="Script" uid="uid://d1djkyatnx0hx" path="res://GameOver.gd" id="1_eksk4"]
+[ext_resource type="Texture2D" uid="uid://csm2upqynk8c4" path="res://Assets/Titles/Retry.png" id="2_eksk4"]
+
+[node name="GameOverScreen" type="Control" unique_id=1994143325]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eksk4")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=700879813]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07058824, 0.07058824, 0.07058824, 0.5882353)
+
+[node name="YouDiedTitle" type="TextureRect" parent="." unique_id=909769836]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 104.0
+offset_right = 1856.0
+offset_bottom = 704.0
+scale = Vector2(0.39991635, 0.52679515)
+texture = ExtResource("1_a1htc")
+
+[node name="RetryButton" type="TextureButton" parent="." unique_id=21710763]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 0
+offset_left = 448.0
+offset_top = 456.0
+offset_right = 2048.0
+offset_bottom = 656.0
+scale = Vector2(0.1595851, 0.18982503)
+texture_normal = ExtResource("2_eksk4")
+ignore_texture_size = true
+stretch_mode = 3
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
