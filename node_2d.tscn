@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://map" path="res://Scenes/Map/Map.tscn" id="1_wtcfe"]
 [ext_resource type="PackedScene" uid="uid://dpa08hsj7phdm" path="res://Scenes/Player/Player.tscn" id="2_0e48y"]
 [ext_resource type="PackedScene" uid="uid://bfr6bv3x0xl7w" path="res://Scenes/Enemy/enemy.tscn" id="3_epypp"]
+[ext_resource type="Texture2D" uid="uid://qotryoeab3vo" path="res://Assets/Lifebar/Container3.png" id="4_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://bt004aq5bh01x" path="res://Assets/Lifebar/Fillbar3.png" id="5_kdubu"]
+[ext_resource type="Texture2D" uid="uid://cnxovl14hrwmc" path="res://Assets/Lifebar/Heart.png" id="6_kdubu"]
 
 [node name="Node2D" type="Node2D" unique_id=1014430585]
 
@@ -11,7 +14,25 @@
 [node name="Enemy" parent="." unique_id=1834516169 instance=ExtResource("3_epypp")]
 position = Vector2(1231, 1605)
 
-[node name="CharacterBody2D" parent="." unique_id=235817179 instance=ExtResource("2_0e48y")]
+[node name="Player" parent="." unique_id=235817179 instance=ExtResource("2_0e48y")]
 position = Vector2(2149, 1954)
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=2006336850]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2006336850]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=559599196]
+
+[node name="Lifebar" type="TextureProgressBar" parent="UI" unique_id=811246864 groups=["lifebar"]]
+offset_left = 68.0
+offset_top = -127.0
+offset_right = 1668.0
+offset_bottom = 1473.0
+scale = Vector2(0.24667133, 0.22214295)
+max_value = 4.0
+value = 4.0
+texture_under = ExtResource("4_q6r6c")
+texture_progress = ExtResource("5_kdubu")
+
+[node name="Heart" type="Sprite2D" parent="UI" unique_id=723466413]
+position = Vector2(110.00003, 234)
+scale = Vector2(0.32610753, 0.3483231)
+texture = ExtResource("6_kdubu")

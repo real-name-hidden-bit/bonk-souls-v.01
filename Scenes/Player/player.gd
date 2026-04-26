@@ -88,8 +88,9 @@ func _on_weapon_frame_changed() -> void:
 func take_damage(attacker_position: Vector2) -> void:
 	lives -= 1
 	print("Player hit! Lives remaining: ", lives)
-	
-	# --- SIMPLE X/Y INSTANT HOP (KNOCKBACK) ---
+	var life_bar = get_tree().get_first_node_in_group("lifebar")
+	if life_bar:
+		life_bar.value = lives
 	
 	# Check X (Left / Right)
 	if attacker_position.x < global_position.x:

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var character_body_2d: CharacterBody2D = $"../CharacterBody2D" # player
+@onready var character_body_2d: CharacterBody2D = $"../Player" # player
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 
 var hp: int = 50
